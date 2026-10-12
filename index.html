@@ -826,8 +826,8 @@ function dashStats(isField){
           [new Set(SUBS.map(x=>x.rec)).size,'Locations covered','map-pin']];
 }
 function dashStatCard(isField){
-  const ac=['#19643E','#EC990C','#2563EB','#7C3AED'];
-  const shm={'#19643E':'rgba(25,100,62,.28)','#EC990C':'rgba(236,153,12,.30)','#2563EB':'rgba(37,99,235,.28)','#7C3AED':'rgba(124,58,237,.28)'};
+  const ac=['#0D9488','#EC990C','#2563EB','#7C3AED'];
+  const shm={'#0D9488':'rgba(13,148,136,.28)','#EC990C':'rgba(236,153,12,.30)','#2563EB':'rgba(37,99,235,.28)','#7C3AED':'rgba(124,58,237,.28)'};
   const items=dashStats(isField);
   const grid=items.length>3;
   return `<div style="display:${grid?'grid':'flex'};${grid?'grid-template-columns:1fr 1fr;':''}gap:10px">${items.map((x,i)=>{
@@ -1251,7 +1251,7 @@ function mySubListHtml(){
         </div>
         <div class="flex g8 mt12">
           <button class="btn btn-ghost btn-sm grow" onclick="nav('fu-subdetail',{id:${r.id}})"><i data-lucide="eye"></i> View Details</button>
-          <button class="btn btn-outline btn-sm grow" onclick="event.stopPropagation();openFill(${r.f},${r.id})"><i data-lucide="square-pen"></i> Edit</button>
+          <button class="btn btn-outline btn-sm" style="width:46px;padding:0;flex:0 0 auto" onclick="event.stopPropagation();openFill(${r.f},${r.id})"><i data-lucide="square-pen"></i></button>
         </div>
       </div>`;}).join('');
 }
@@ -1743,7 +1743,7 @@ function fieldControl(f,a){
           <div class="grow"><div class="geolab">Longitude</div><div class="tt" style="font-size:15px">${a.lng}</div></div>
         </div>
         <div class="flex g8 mt12"><button class="btn btn-ghost btn-sm grow" onclick="captureGPS('${f.id}')"><i data-lucide="refresh-cw"></i> Update</button>
-          <button class="btn btn-ghost btn-sm grow" onclick="manualGeo('${f.id}')"><i data-lucide="pencil"></i> Edit</button></div></div>`;
+          <button class="btn btn-ghost btn-sm grow" onclick="manualGeo('${f.id}')"><i data-lucide="square-pen"></i> Edit</button></div></div>`;
       if(st==='pending')return `<button class="btn btn-outline btn-block" disabled><i data-lucide="loader"></i> Requesting GPS permission…</button>`;
       if(st==='manual'||st==='error')return `<div>
         ${st==='error'?`<div class="banner pend" style="margin-bottom:12px"><div class="t flex ac g8"><i data-lucide="alert-triangle"></i> ${fill.geoErr[f.id]||'GPS unavailable'}</div><div class="muted mt6">Enter the coordinates from your handheld GPS instead.</div></div>`:''}
@@ -1861,7 +1861,7 @@ function profileScreen(isField){
   <div class="hero" style="text-align:center;padding-bottom:26px">
     <div style="position:relative;width:74px;margin:0 auto 10px">
       <div style="width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-weight:800;font-size:25px;color:#fff">${u.in}</div>
-      <span onclick="nav('ad-account')" style="position:absolute;right:-2px;bottom:-2px;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;cursor:pointer;border:2px solid var(--blue)"><i data-lucide="pencil" style="width:12px;height:12px"></i></span>
+      <span onclick="nav('ad-account')" style="position:absolute;right:-2px;bottom:-2px;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;cursor:pointer;border:2px solid var(--blue)"><i data-lucide="square-pen" style="width:12px;height:12px"></i></span>
     </div>
     <div style="font-size:19px;font-weight:800">${u.n}</div>
     <div style="font-size:13px;color:#CFEAD8">${u.r} · ${u.org}</div>
