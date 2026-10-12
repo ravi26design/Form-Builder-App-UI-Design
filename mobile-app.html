@@ -1249,7 +1249,10 @@ function mySubListHtml(){
             <div class="muted small mt4 flex ac g6"><i data-lucide="clock" style="width:13px;height:13px;flex:0 0 auto"></i>${r.at}</div>
           </div>
         </div>
-        <button class="btn btn-ghost btn-sm btn-block mt12" onclick="nav('fu-subdetail',{id:${r.id}})"><i data-lucide="eye"></i> View Details</button>
+        <div class="flex g8 mt12">
+          <button class="btn btn-ghost btn-sm grow" onclick="nav('fu-subdetail',{id:${r.id}})"><i data-lucide="eye"></i> View Details</button>
+          <button class="btn btn-outline btn-sm grow" onclick="event.stopPropagation();openFill(${r.f},${r.id})"><i data-lucide="square-pen"></i> Edit</button>
+        </div>
       </div>`;}).join('');
 }
 
