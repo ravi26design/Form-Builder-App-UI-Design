@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "IndiaObservatory Forms",
+    "slug": "fes-forms",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "fesforms",
+    "splash": {
+      "backgroundColor": "#1F4397"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "co.indiaobservatory.fesforms"
+    },
+    "android": {
+      "package": "co.indiaobservatory.fesforms"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
