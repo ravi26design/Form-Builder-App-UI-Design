@@ -1868,17 +1868,7 @@ function profileScreen(isField){
     <span class="badge mt10" style="background:rgba(255,255,255,.2);color:#fff"><i data-lucide="map-pin" style="width:13px;height:13px"></i> ${u.area}</span>
   </div>
   <div class="pad pb">
-    <div class="card p">
-      <div class="flex between ac"><div class="sec-title" style="font-size:15px">${isField?'My collection':'Organisation'}</div>
-        ${isField?`<span class="lnk" onclick="nav('fu-forms')">My Forms</span>`:`<span class="lnk" onclick="nav('ad-dash')">Dashboard</span>`}</div>
-      <div class="flex g12 mt12">
-        <div class="grow"><div style="font-size:24px;font-weight:800;color:var(--metric);font-family:'DM Sans'">${isField?subs:FORMS.length}</div><div class="muted small">${isField?'records submitted':'forms'}</div></div>
-        <div class="grow"><div style="font-size:24px;font-weight:800;color:var(--metric);font-family:'DM Sans'">${isField?places:PROGRAMS.length}</div><div class="muted small">${isField?'locations covered':'programmes'}</div></div>
-        <div class="grow"><div style="font-size:24px;font-weight:800;color:var(--metric);font-family:'DM Sans'">${isField?progs:TEAM.length}</div><div class="muted small">${isField?'programmes':'team members'}</div></div>
-      </div>
-    </div>
-
-    <div class="pgroup" style="margin-top:18px">Account</div>
+    <div class="pgroup" style="margin-top:4px">Account</div>
     <div class="card p">
       ${setRow('user','Account Settings',"nav('ad-account')")}
       ${setRow('lock','Change Password',"nav('changepw')")}
