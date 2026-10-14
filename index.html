@@ -1607,7 +1607,7 @@ function renderField(f,hideTag){
   }
   const bad=fill.showErr&&f.req&&!isAnswered(f);
   return `<div class="fillfield${bad?' err':''}" id="ff_${f.id}">
-    <div class="flabel"><span>${f.label}${f.req?' <span style="color:var(--error)">*</span>':''}</span>${hideTag?'':`<span class="ftag">${f.rec?'RECORD TITLE':f.type}</span>`}</div>
+    <div class="flabel"><span>${f.label}${f.req?' <span style="color:var(--error)">*</span>':''}</span></div>
     ${f.rec?`<div class="hint flex ac g6" style="margin:-2px 0 8px"><i data-lucide="bookmark" style="width:13px;height:13px"></i> Names this record in your submissions list</div>`:''}
     ${fieldControl(f,a)}
     <div class="reqmsg"><i data-lucide="alert-circle"></i> This field is required</div>${fu}
