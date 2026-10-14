@@ -555,7 +555,7 @@ const FILL_SECTIONS = [
   /* A repeatable section: the same fields, captured once per person. The form
      author sets how many copies appear to begin with; the field user adds more
      when the household is larger than expected. */
-  { title:'Household Members', icon:'users', repeat:{count:3, min:1, max:25, singular:'Member', plural:'Members'}, fields:[
+  { title:'Household Members', icon:'users', repeat:{count:1, min:1, max:25, singular:'Member', plural:'Members'}, fields:[
     {id:'mname', label:'Full Name', type:'Short Text', req:false, ph:'Enter name'},
     {id:'mage', label:'Age', type:'Number', req:false, ph:'Years'},
     {id:'mgender', label:'Gender', type:'Dropdown', req:false, opts:['Female','Male','Other','Prefer not to say']},
@@ -1569,7 +1569,7 @@ function renderSectionCard(sec,si){
   var insts='';
   for(var k=0;k<n;k++){
     var sfx='#'+k;
-    var body=sec.fields.map(function(f){return renderField(cloneFieldWithSuffix(f,sfx));}).join('');
+    var body=sec.fields.map(function(f){return renderField(cloneFieldWithSuffix(f,sfx),true);}).join('');
     var canRemove=n>min;
     insts+=`<div class="rpt-item">
       <div class="rpt-head flex between ac"><span class="rpt-badge"><i data-lucide="user" style="width:13px;height:13px"></i> ${sing} ${k+1}</span>
@@ -1598,23 +1598,23 @@ function fillNext(){
   fill.i=i+1;fill.showErr=false;nav('fu-fill');
 }
 function fillPrev(){fill.i=Math.max(0,(fill.i||0)-1);fill.showErr=false;nav('fu-fill');}
-function renderField(f){
+function renderField(f,hideTag){
   const a=fill.answers[f.id];
   let fu='';
   if(f.followups){
-    if(Array.isArray(a)){a.forEach(function(opt){if(f.followups[opt])fu+=renderFuBlock(opt,f.followups[opt]);});}
-    else if(a&&f.followups[a]){fu+=renderFuBlock(a,f.followups[a]);}
+    if(Array.isArray(a)){a.forEach(function(opt){if(f.followups[opt])fu+=renderFuBlock(opt,f.followups[opt],hideTag);});}
+    else if(a&&f.followups[a]){fu+=renderFuBlock(a,f.followups[a],hideTag);}
   }
   const bad=fill.showErr&&f.req&&!isAnswered(f);
   return `<div class="fillfield${bad?' err':''}" id="ff_${f.id}">
-    <div class="flabel"><span>${f.label}${f.req?' <span style="color:var(--error)">*</span>':''}</span><span class="ftag">${f.rec?'RECORD TITLE':f.type}</span></div>
+    <div class="flabel"><span>${f.label}${f.req?' <span style="color:var(--error)">*</span>':''}</span>${hideTag?'':`<span class="ftag">${f.rec?'RECORD TITLE':f.type}</span>`}</div>
     ${f.rec?`<div class="hint flex ac g6" style="margin:-2px 0 8px"><i data-lucide="bookmark" style="width:13px;height:13px"></i> Names this record in your submissions list</div>`:''}
     ${fieldControl(f,a)}
     <div class="reqmsg"><i data-lucide="alert-circle"></i> This field is required</div>${fu}
   </div>`;
 }
-function renderFuBlock(opt,fields){
-  return `<div class="fu-wrap"><div class="fu-tag"><i data-lucide="corner-down-right"></i> Follow-up · shown for “${opt}”</div>${fields.map(f=>renderField(f)).join('')}</div>`;
+function renderFuBlock(opt,fields,hideTag){
+  return `<div class="fu-wrap"><div class="fu-tag"><i data-lucide="corner-down-right"></i> Follow-up · shown for “${opt}”</div>${fields.map(f=>renderField(f,hideTag)).join('')}</div>`;
 }
 function inp(f,a,type,lead,mode){return `<div class="input">${lead?`<span class="lead"><i data-lucide="${lead}"></i></span>`:''}<input type="${type}"${mode?` inputmode="${mode}"`:''} placeholder="${f.ph||''}" value="${a==null?'':esc(String(a))}" oninput="setAns('${f.id}',this.value)"></div>`;}
 
