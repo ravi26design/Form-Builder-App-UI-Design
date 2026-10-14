@@ -1573,7 +1573,7 @@ function renderSectionCard(sec,si){
     var canRemove=n>min;
     insts+=`<div class="rpt-item">
       <div class="rpt-head flex between ac"><span class="rpt-badge"><i data-lucide="user" style="width:13px;height:13px"></i> ${sing} ${k+1}</span>
-        ${canRemove?`<span class="rpt-del flex ac g4" onclick="removeRepeat(${si},${k})"><i data-lucide="trash-2" style="width:14px;height:14px"></i> Remove</span>`:''}</div>
+        ${canRemove?`<span class="rpt-del flex ac" onclick="removeRepeat(${si},${k})" aria-label="Remove" title="Remove"><i data-lucide="trash-2" style="width:16px;height:16px"></i></span>`:''}</div>
       ${body}
     </div>`;
   }
