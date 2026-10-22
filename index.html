@@ -2027,7 +2027,7 @@ SCREENS['profile-about']=()=>{
   <div style="background:#fff;padding:16px 16px;border-bottom:1px solid var(--border)"><div class="flex ac g10"><span class="lnk flex ac" onclick="nav('${ROLE==='field'?'fu-profile':'ad-profile'}')" style="cursor:pointer;margin-left:-2px"><i data-lucide="arrow-left"></i></span><div class="tt" style="font-size:18px">About this app</div></div></div>
   <div class="pad pb">
     <div class="card p" style="text-align:center">
-      <div style="width:64px;height:64px;border-radius:18px;background:var(--blue);display:grid;place-items:center;color:#fff;margin:0 auto 12px"><i data-lucide="leaf" style="width:32px;height:32px"></i></div>
+      <img src="${LOGO}" alt="Form Builder" style="width:72px;height:72px;border-radius:18px;object-fit:contain;margin:0 auto 12px;display:block">
       <div class="tt" style="font-size:17px">Form Builder</div>
       <div class="muted small mt4">Conservation data collection for the field</div>
       <div class="muted small mt10">Version 1.0.0 · build 118</div>
@@ -2041,7 +2041,6 @@ SCREENS['profile-about']=()=>{
     <div class="card p mt14">
       ${setRow('file-text','Terms of Use',"nav('legal',{doc:'terms'})")}
       ${setRow('shield','Privacy Policy',"nav('legal',{doc:'privacy'})")}
-      ${setRow('scale','Open source licences',"toast('Opening licences','external-link')")}
       ${setRow('star','Rate this app',"toast('Thanks for the feedback','star')")}
     </div>
     <div class="muted small" style="text-align:center;margin-top:16px">© 2026 Form Builder · Made for field teams</div>
