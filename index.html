@@ -3065,7 +3065,7 @@ SCREENS['intro']=()=>{
       <div class="flex ac g6" style="justify-content:center;margin-bottom:20px">
         ${INTRO.map((_,k)=>`<span onclick="introI=${k};nav('intro')" style="width:${k===i?22:7}px;height:7px;border-radius:9px;background:${k===i?'var(--blue)':'var(--border)'};cursor:pointer;transition:.25s"></span>`).join('')}
       </div>
-      <button class="btn btn-primary btn-block" style="height:52px" onclick="${last?`introI=0;nav('login')`:`introI=${i+1};nav('intro')`}">${last?'Get Started':'Next'} <i data-lucide="arrow-right"></i></button>
+      <button class="btn btn-primary btn-block" style="height:52px" onclick="introI=0;nav('login')">Get Started <i data-lucide="arrow-right"></i></button>
     </div>
   </div>`;
 };
