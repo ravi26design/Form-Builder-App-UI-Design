@@ -2347,19 +2347,19 @@ SCREENS['ad-account']=()=>{
   <div class="pad pb">
     <div class="card p flex ac g12"><div class="avatar" style="width:64px;height:64px;font-size:22px">${ROLE==='field'?'RK':'JA'}</div><div class="grow"><div class="tt">${ROLE==='field'?'Rajesh Kumar':'Jay'}</div><div class="muted small">${ROLE==='field'?'Field User':'FES Admin'}</div><button class="btn btn-outline btn-sm mt8" onclick="toast('Choose photo')"><i data-lucide="camera"></i> Change Photo</button></div></div>
     <div class="card p mt14"><div class="sec-title" style="font-size:15px;margin-bottom:12px">Profile</div>
-      <div class="field"><label>Full Name</label><div class="input"><input value="${ROLE==='field'?'Rajesh Kumar':'Jay'}"></div></div>
-      <div class="field"><label>Email</label><div class="input"><input value="${ROLE==='field'?'rajesh@formbuilder.app':'jay@formbuilder.app'}"></div></div>
-      <div class="field"><label>Phone</label><div class="input"><input value="+91 98765 43210"></div></div>
+      <div class="field"><label>Full Name</label><div class="input"><input value="${ROLE==='field'?'Rajesh Kumar':'Jay'}" oninput="acDirty()"></div></div>
+      <div class="field"><label>Email</label><div class="input"><input value="${ROLE==='field'?'rajesh@formbuilder.app':'jay@formbuilder.app'}" oninput="acDirty()"></div></div>
+      <div class="field"><label>Phone</label><div class="input"><input value="+91 98765 43210" oninput="acDirty()"></div></div>
       <div class="field" style="margin-bottom:0"><label>Organization</label><div class="input ro"><input value="Form Builder" readonly style="color:var(--muted)"></div></div></div>
     <div class="card p mt14"><div class="sec-title" style="font-size:15px;margin-bottom:4px">Preferences</div>
       ${prefRow('email','Email Notifications','Get notified about new responses')}
       ${prefRow('push','Push Notifications','Alerts on your device')}
       ${prefRow('offline','Offline Mode','Cache forms for field work')}</div>
-    <button class="btn btn-primary btn-block mt16" onclick="toast('Changes saved','check-circle-2')">Save Changes</button>
-    <button class="btn btn-danger-g btn-block mt12" onclick="nav('login')"><i data-lucide="log-out"></i> Log Out</button>
+    <button id="acSave" class="btn btn-primary btn-block mt16" style="display:none" onclick="toast('Changes saved','check-circle-2');this.style.display='none'">Save Changes</button>
   </div>`;
 };
-function prefRow(k,t,d){return `<div class="flex between ac" style="padding:13px 0;border-bottom:1px solid var(--border2)"><div class="grow"><div style="font-weight:700;font-size:14px;color:var(--heading)">${t}</div><div class="hint">${d}</div></div><div class="tgl ${accPrefs[k]?'on':''}" onclick="accPrefs['${k}']=!accPrefs['${k}'];this.classList.toggle('on')"></div></div>`;}
+function acDirty(){var b=document.getElementById('acSave');if(b)b.style.display='';}
+function prefRow(k,t,d){return `<div class="flex between ac" style="padding:13px 0;border-bottom:1px solid var(--border2)"><div class="grow"><div style="font-weight:700;font-size:14px;color:var(--heading)">${t}</div><div class="hint">${d}</div></div><div class="tgl ${accPrefs[k]?'on':''}" onclick="accPrefs['${k}']=!accPrefs['${k}'];this.classList.toggle('on');acDirty()"></div></div>`;}
 
 /* ---- CHANGE PASSWORD ---- */
 let cpw={cur:'',nw:'',cf:''};
