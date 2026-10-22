@@ -2966,7 +2966,7 @@ SCREENS['splash']=()=>{
 };
 
 /* ---- INTRO / ONBOARDING ---- */
-let introI=0;
+let introI=0,introTimer=null;
 const INTRO=[
   {t:'Collect field data, anywhere',
    d:'Fill assigned forms right on site — step by step, with photos, GPS and signatures.',
@@ -3002,6 +3002,8 @@ const INTRO=[
 SCREENS['intro']=()=>{
   statusLight(false);
   const i=Math.min(introI,INTRO.length-1);const s=INTRO[i];const last=i===INTRO.length-1;
+  clearTimeout(introTimer);
+  introTimer=setTimeout(function(){if(curScreen!=='intro')return;introI=(introI+1)%INTRO.length;nav('intro');},3400);
   return `
   <div style="display:flex;flex-direction:column;height:100%;background:#fff">
     <div class="flex between ac" style="padding:16px 20px 4px;flex:0 0 auto">
