@@ -769,18 +769,17 @@ SCREENS['login']=()=>{
   <div style="background:var(--blue);min-height:100%;display:flex;flex-direction:column">
     <div style="padding:36px 24px 62px;color:#fff;text-align:center">
       <div style="width:60px;height:60px;border-radius:18px;background:rgba(255,255,255,.16);display:grid;place-items:center;margin:0 auto 20px"><i data-lucide="clipboard-list" style="width:31px;height:31px;color:#fff"></i></div>
-      <div style="font-size:28px;font-weight:800;line-height:1.15;letter-spacing:-.4px">Sign in to your Account</div>
-      <div style="font-size:13.5px;color:#CBDCFB;margin-top:10px">Enter your email and password to log in</div>
+      <div style="font-size:34px;font-weight:800;line-height:1.1;letter-spacing:-.6px;max-width:260px;margin:0 auto">Sign in to your Account</div>
+      <div style="font-size:13.5px;color:#CBDCFB;margin-top:12px">Enter your email and password to log in</div>
     </div>
-    <div style="background:#fff;border-radius:28px 28px 0 0;margin-top:-42px;padding:30px 22px 30px;flex:1">
+    <div style="background:#fff;border-radius:28px 28px 0 0;margin-top:-42px;padding:34px 22px 30px;flex:1">
       ${loginErr?`<div class="banner pend" style="margin-bottom:16px;border-style:solid;border-color:var(--blue)">
         <div class="t flex ac g8"><i data-lucide="shield-alert"></i> Mobile access is for Field Users only</div>
         <div class="muted mt6">${loginErr}</div></div>`:''}
-      <div class="field"><label>Email Address</label>
-        <div class="input" style="height:52px${loginErr?';border-color:var(--blue);border-width:1.5px':''}"><span class="lead"><i data-lucide="mail"></i></span>
-          <input placeholder="Type your email" value="${esc(loginEmail)}" oninput="loginEmail=this.value;loginErr=''"></div></div>
-      <div class="field"><label>Password</label><div class="input" style="height:52px"><span class="lead"><i data-lucide="lock"></i></span><input type="password" placeholder="Type your password" value="demopass"><span class="trail" onclick="togglePw(this)"><i data-lucide="eye-off"></i></span></div></div>
-      <div class="flex between ac" style="margin:2px 0 22px">
+      <div class="field"><div class="input" style="height:56px${loginErr?';border-color:var(--blue);border-width:1.5px':''}"><span class="lead"><i data-lucide="mail"></i></span>
+          <input placeholder="Email address" value="${esc(loginEmail)}" oninput="loginEmail=this.value;loginErr=''"></div></div>
+      <div class="field"><div class="input" style="height:56px"><span class="lead"><i data-lucide="lock"></i></span><input type="password" placeholder="Password" value="demopass"><span class="trail" onclick="togglePw(this)"><i data-lucide="eye-off"></i></span></div></div>
+      <div class="flex between ac" style="margin:4px 0 24px">
         <label class="flex ac g8" style="cursor:pointer;font-size:13px;font-weight:600;color:var(--strong)" onclick="this.querySelector('.ckbox').classList.toggle('on')"><span class="ckbox on"><i data-lucide="check"></i></span> Remember me</label>
         <span class="lnk" style="font-weight:700" onclick="nav('fp-email')">Forgot Password?</span>
       </div>
