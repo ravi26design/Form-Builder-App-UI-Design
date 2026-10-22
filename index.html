@@ -3067,7 +3067,6 @@ SCREENS['intro']=()=>{
         ${INTRO.map((_,k)=>`<span onclick="introI=${k};nav('intro')" style="width:${k===i?22:7}px;height:7px;border-radius:9px;background:${k===i?'var(--blue)':'var(--border)'};cursor:pointer;transition:.25s"></span>`).join('')}
       </div>
       <button class="btn btn-primary btn-block" style="height:52px" onclick="${last?`introI=0;nav('login')`:`introI=${i+1};nav('intro')`}">${last?'Get Started':'Next'} <i data-lucide="arrow-right"></i></button>
-      <div class="muted small" style="text-align:center;margin-top:16px">Already have an account? <span class="lnk" style="font-weight:700" onclick="introI=0;nav('login')">Log In</span></div>
     </div>
   </div>`;
 };
