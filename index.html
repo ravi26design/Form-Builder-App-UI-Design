@@ -766,13 +766,13 @@ let loginErr='';
 SCREENS['login']=()=>{
   statusLight(true);
   return `
-  <div style="background:var(--blue);min-height:100%;display:flex;flex-direction:column">
-    <div style="padding:36px 24px 62px;color:#fff;text-align:center">
-      <div style="width:60px;height:60px;border-radius:18px;background:rgba(255,255,255,.16);display:grid;place-items:center;margin:0 auto 20px"><i data-lucide="clipboard-list" style="width:31px;height:31px;color:#fff"></i></div>
+  <div style="background:var(--canvas);min-height:100%;display:flex;flex-direction:column">
+    <div style="padding:38px 24px 54px;color:var(--heading);text-align:center">
+      <div style="width:60px;height:60px;border-radius:18px;background:var(--blue);display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 10px 24px rgba(46,91,206,.28)"><i data-lucide="clipboard-list" style="width:31px;height:31px;color:#fff"></i></div>
       <div style="font-size:34px;font-weight:800;line-height:1.1;letter-spacing:-.6px;max-width:260px;margin:0 auto">Sign in to your Account</div>
-      <div style="font-size:13.5px;color:#CBDCFB;margin-top:12px">Enter your email and password to log in</div>
+      <div style="font-size:13.5px;color:var(--muted);margin-top:12px">Enter your email and password to log in</div>
     </div>
-    <div style="background:#fff;border-radius:28px 28px 0 0;margin-top:-42px;padding:34px 22px 30px;flex:1">
+    <div style="background:#fff;border-radius:28px 28px 0 0;margin-top:-22px;padding:34px 22px 30px;flex:1;box-shadow:0 -8px 24px rgba(16,32,22,.05)">
       ${loginErr?`<div class="banner pend" style="margin-bottom:16px;border-style:solid;border-color:var(--blue)">
         <div class="t flex ac g8"><i data-lucide="shield-alert"></i> Mobile access is for Field Users only</div>
         <div class="muted mt6">${loginErr}</div></div>`:''}
