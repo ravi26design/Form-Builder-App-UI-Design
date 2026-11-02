@@ -1877,11 +1877,6 @@ function profileScreen(isField){
       ${isField?'':setRow('database','Storage & cached forms',"nav('profile-data')")}
     </div>
 
-    <div class="pgroup" style="margin-top:18px">Support</div>
-    <div class="card p">
-      ${setRow('life-buoy','Help & Support',"nav('ad-help')")}
-      ${setRow('inbox','My requests',"nav('help-tickets')",`<span class="muted small">${TICKETS.filter(t=>t.s!=='resolved').length} open</span>`)}
-    </div>
 
     <div class="pgroup" style="margin-top:18px">Legal</div>
     <div class="card p">
@@ -1973,7 +1968,7 @@ const LEGAL={
       ['Device permissions','The app asks for location, camera and storage access only to complete the fields a form contains. You may refuse any of them and enter the information by hand instead, though some forms may then be impossible to complete.'],
       ['Availability','The app is provided as is. Forms, programmes and indicators change as work in the field changes, and an admin may update or withdraw a form you have already started.'],
       ['Ending access','Your organisation may suspend or close your account, for example when you leave a programme. Records you already submitted stay in the dataset.'],
-      ['Questions','Write to legal@formbuilder.app, or raise it through Help & Support in the app.'],
+      ['Questions','Write to legal@formbuilder.app with any questions about these terms.'],
     ]},
   privacy:{t:'Privacy Policy',upd:'Last updated 1 September 2026',icon:'shield',
     intro:'This explains what the app collects, why it needs it, and who can see it.',
